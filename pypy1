@@ -1,0 +1,16 @@
+timport numpy as np
+import pandas as pd
+from pandas_datareader import data as pdr
+import matplotlib.pyplot as plt
+import yfinance as yf
+import talib as ta
+yf.pdr_override()
+LQ45 = pdr.get_data_yahoo("^JKLQ45", start="2013-01-01", end="2023-04-30")
+LQ45.head(3)
+plt.figure(figsize=(10, 6))
+plt.plot(LQ45.index, LQ45["Close"], label="LQ45 Closing Price", color="b")
+plt.title("Indonesian LQ45 Stock Price")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.legend()
+plt.show()
